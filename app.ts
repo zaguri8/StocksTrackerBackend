@@ -12,6 +12,7 @@ app.get("/stock_info/:symbol", async (req, res) => {
     const { start_date, end_date, timeFrame } = req.query as any;
     const service = new StocksService(req.params.symbol);
     const data = await service.getPriceAction(start_date, end_date, timeFrame);
+    
     res.status(200).json(data);
   } catch (error: any) {
     res.status(400).json({

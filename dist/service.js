@@ -25,12 +25,24 @@ class StocksService {
     }
     getPriceAction(startDate_1, endDate_1) {
         return __awaiter(this, arguments, void 0, function* (startDate, endDate, timeFrame = "day") {
+            const existingSearch = yield Search_1.default.findOne({
+                search: this.ticker,
+                start_date: startDate,
+                end_date: endDate,
+                timeFrame,
+            });
+            if (existingSearch) {
+                return existingSearch.result;
+            }
             const { stockData, profile } = yield this.info(startDate, endDate, timeFrame);
             const companyThumbnail = yield this.thumbnail();
             // Save search to database
             if (stockData && profile && companyThumbnail)
                 yield Search_1.default.create({
                     search: this.ticker,
+                    start_date: startDate,
+                    end_date: endDate,
+                    timeFrame,
                     result: { stockData, profile, companyThumbnail },
                 });
             return { stockData, profile, companyThumbnail };

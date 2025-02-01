@@ -10,9 +10,14 @@ exports.SearchSchema = new mongoose_1.default.Schema({
         type: String,
         required: true,
     },
-    date: {
-        type: Date,
-        default: Date.now,
+    start_date: {
+        type: String,
+    },
+    end_date: {
+        type: String,
+    },
+    timeFrame: {
+        type: String,
     },
     result: {
         type: Object,
