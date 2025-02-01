@@ -1,0 +1,9 @@
+GET http://localhost:8080/stock_info/IBM
+
+
+###
+GET https://api.api-ninjas.com/v1/logo?name=Microsoft
+
+{
+    "X-Api-Key": "DendZTsRiwrGvis74tkIhg==QGwU8ac02g1nSk7i"
+}

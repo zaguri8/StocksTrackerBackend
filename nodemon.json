@@ -1,0 +1,9 @@
+{
+    "watch": [
+      "**/*.ts", 
+      "*.ts"
+    ],
+    "exec": "tsx index.ts",
+    "ext": "ts"
+  }
+  
